@@ -1,0 +1,10 @@
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\bin\Debug\WallpaperEVO.exe.config
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\bin\Debug\WallpaperEVO.exe
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\bin\Debug\WallpaperEVO.pdb
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csprojAssemblyReference.cache
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.frmMain.resources
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.Properties.Resources.resources
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.GenerateResource.cache
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.CoreCompileInputs.cache
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.exe
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.pdb
