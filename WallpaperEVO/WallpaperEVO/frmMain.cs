@@ -45,5 +45,11 @@ namespace WallpaperEVO
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void SendRequest(object sender, EventArgs e)
+        {
+            Network net = new Network();
+            net.StartScrape(txbSearch.Text, "/html/body/div[2]/main/div/div[6]/div[1]/div[4]/div/div[1]/article/a[1]/img");
+        }
     }
 }

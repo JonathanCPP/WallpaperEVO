@@ -30,15 +30,15 @@ namespace WallpaperEVO
         private void InitializeComponent()
         {
             this.pnlToolbar = new System.Windows.Forms.Panel();
-            this.btnQuit = new System.Windows.Forms.Button();
+            this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.pnlSearch = new System.Windows.Forms.Panel();
-            this.pnlContent = new System.Windows.Forms.Panel();
-            this.txbSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.lblLogo = new System.Windows.Forms.Label();
+            this.txbSearch = new System.Windows.Forms.TextBox();
+            this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlToolbar.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.SuspendLayout();
@@ -55,22 +55,16 @@ namespace WallpaperEVO
             this.pnlToolbar.TabIndex = 0;
             this.pnlToolbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
             // 
-            // btnQuit
+            // lblLogo
             // 
-            this.btnQuit.BackColor = System.Drawing.Color.Red;
-            this.btnQuit.FlatAppearance.BorderSize = 0;
-            this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuit.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnQuit.Location = new System.Drawing.Point(964, 9);
-            this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(45, 25);
-            this.btnQuit.TabIndex = 1;
-            this.btnQuit.Text = "X";
-            this.btnQuit.UseVisualStyleBackColor = false;
-            this.btnQuit.Click += new System.EventHandler(this.QuitApplication);
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogo.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.lblLogo.Location = new System.Drawing.Point(402, 0);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(218, 36);
+            this.lblLogo.TabIndex = 3;
+            this.lblLogo.Text = "WallpaperEVO";
             // 
             // btnMinimize
             // 
@@ -89,6 +83,23 @@ namespace WallpaperEVO
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.MinimizeApplication);
             // 
+            // btnQuit
+            // 
+            this.btnQuit.BackColor = System.Drawing.Color.Red;
+            this.btnQuit.FlatAppearance.BorderSize = 0;
+            this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnQuit.Location = new System.Drawing.Point(964, 9);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(45, 25);
+            this.btnQuit.TabIndex = 1;
+            this.btnQuit.Text = "X";
+            this.btnQuit.UseVisualStyleBackColor = false;
+            this.btnQuit.Click += new System.EventHandler(this.QuitApplication);
+            // 
             // pnlSearch
             // 
             this.pnlSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
@@ -102,27 +113,17 @@ namespace WallpaperEVO
             this.pnlSearch.Size = new System.Drawing.Size(989, 92);
             this.pnlSearch.TabIndex = 1;
             // 
-            // pnlContent
+            // btnSearch
             // 
-            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.pnlContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlContent.Location = new System.Drawing.Point(12, 144);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(989, 476);
-            this.pnlContent.TabIndex = 2;
-            // 
-            // txbSearch
-            // 
-            this.txbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.txbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSearch.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbSearch.Location = new System.Drawing.Point(271, 28);
-            this.txbSearch.MaxLength = 100;
-            this.txbSearch.Name = "txbSearch";
-            this.txbSearch.Size = new System.Drawing.Size(476, 29);
-            this.txbSearch.TabIndex = 0;
-            this.txbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(753, 28);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(86, 29);
+            this.btnSearch.TabIndex = 0;
+            this.btnSearch.Text = "Apply";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.SendRequest);
             // 
             // btnInfo
             // 
@@ -154,27 +155,27 @@ namespace WallpaperEVO
             this.btnSettings.TabIndex = 1;
             this.btnSettings.UseVisualStyleBackColor = true;
             // 
-            // btnSearch
+            // txbSearch
             // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(753, 28);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(86, 29);
-            this.btnSearch.TabIndex = 0;
-            this.btnSearch.Text = "Apply";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.txbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.txbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSearch.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txbSearch.Location = new System.Drawing.Point(271, 28);
+            this.txbSearch.MaxLength = 100;
+            this.txbSearch.Name = "txbSearch";
+            this.txbSearch.Size = new System.Drawing.Size(476, 29);
+            this.txbSearch.TabIndex = 0;
+            this.txbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblLogo
+            // pnlContent
             // 
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.lblLogo.Location = new System.Drawing.Point(402, 0);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(218, 36);
-            this.lblLogo.TabIndex = 3;
-            this.lblLogo.Text = "WallpaperEVO";
+            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.pnlContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlContent.Location = new System.Drawing.Point(12, 144);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(989, 476);
+            this.pnlContent.TabIndex = 2;
             // 
             // frmMain
             // 
