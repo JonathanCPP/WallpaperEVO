@@ -1,7 +1,7 @@
 ﻿
 namespace WallpaperEVO
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
