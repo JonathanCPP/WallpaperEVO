@@ -22,6 +22,8 @@ namespace WallpaperEVO
         public static extern bool ReleaseCapture();
         #endregion
 
+        const string linkpart1 = "https://wallpaperscraft.com/search/?query=";
+
         public frmMain()
         {
             InitializeComponent();
@@ -49,7 +51,27 @@ namespace WallpaperEVO
         private void SendRequest(object sender, EventArgs e)
         {
             Network net = new Network();
-            net.StartScrape(txbSearch.Text, "/html/body/div[2]/main/div/div[6]/div[1]/div[4]/div/div[1]/article/a[1]/img");
+            string[] tab = net.StartScrape(linkpart1 + txbSearch.Text, "/html/body/div/div[2]/div[2]/div/div[2]/div[1]/ul/li/a/span[1]/img");
+            ShowImages(tab);
+        }
+
+        private void ShowImages(string[] tab)
+        {
+            int xOffset = 0;
+            int yOffset = 0;
+
+            for (int i = 0; i < tab.Length; i++)
+            {
+                if (tab[i] != null)
+                {
+                    PictureBox img = new PictureBox();
+                    pnlContent.Controls.Add(img);
+                    img.Load(@tab[i]);
+                    img.Location = new Point(xOffset, yOffset);
+                    img.SizeMode = PictureBoxSizeMode.AutoSize;
+                    xOffset += img.Width;
+                }
+            }
         }
     }
 }

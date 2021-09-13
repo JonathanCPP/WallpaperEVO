@@ -29,6 +29,7 @@ namespace WallpaperEVO
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlToolbar = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@ namespace WallpaperEVO
             this.btnSettings = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.imagesDB = new System.Windows.Forms.ImageList(this.components);
             this.pnlToolbar.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.SuspendLayout();
@@ -171,12 +173,19 @@ namespace WallpaperEVO
             // 
             // pnlContent
             // 
+            this.pnlContent.AutoScroll = true;
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.pnlContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlContent.Location = new System.Drawing.Point(12, 144);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(989, 476);
             this.pnlContent.TabIndex = 2;
+            // 
+            // imagesDB
+            // 
+            this.imagesDB.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imagesDB.ImageSize = new System.Drawing.Size(16, 16);
+            this.imagesDB.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // frmMain
             // 
@@ -210,6 +219,7 @@ namespace WallpaperEVO
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.ImageList imagesDB;
     }
 }
 

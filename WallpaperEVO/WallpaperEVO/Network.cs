@@ -12,21 +12,26 @@ namespace WallpaperEVO
     {
         HtmlWeb web = new HtmlWeb();
 
-        public void StartScrape(string URL, string xPath)
+        public string[] StartScrape(string URL, string xPath)
         {
             HtmlAgilityPack.HtmlDocument doc = RetrieveHtml(URL);
-            HtmlNode[] links = RetrieveURLs(xPath, doc);
+            string[] tab = new string[50];
+            int temp = 0;
+            HtmlNodeCollection linkNodes = doc.DocumentNode.SelectNodes(xPath);
+            ImageList imgs = new ImageList();
+
+            foreach (HtmlNode item in linkNodes)
+            {
+                tab[temp] = item.GetAttributeValue("src","nothing");
+                temp++;
+            }
+
+            return tab;
         }
 
         private HtmlAgilityPack.HtmlDocument RetrieveHtml(string URL)
         {
             return web.Load(URL);
-        }
-
-        private HtmlNode[] RetrieveURLs(string xPath, HtmlAgilityPack.HtmlDocument doc)
-        {
-            return doc.DocumentNode.SelectNodes(xPath).ToArray();
-            //https://stackoverflow.com/questions/4835868/how-to-get-img-src-or-a-hrefs-using-html-agility-pack c'est mieux
         }
     }
 }
