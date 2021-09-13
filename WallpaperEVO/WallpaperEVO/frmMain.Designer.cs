@@ -65,6 +65,7 @@ namespace WallpaperEVO
             this.lblLogo.Size = new System.Drawing.Size(218, 36);
             this.lblLogo.TabIndex = 3;
             this.lblLogo.Text = "WallpaperEVO";
+            this.lblLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
             // 
             // btnMinimize
             // 
