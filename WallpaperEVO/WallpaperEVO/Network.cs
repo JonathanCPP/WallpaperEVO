@@ -10,28 +10,40 @@ namespace WallpaperEVO
 {
     class Network
     {
-        HtmlWeb web = new HtmlWeb();
+        private string _URL = string.Empty;
+        private string _xPath = string.Empty;
 
-        public string[] StartScrape(string URL, string xPath)
+        public Network(string URL, string xPath)
         {
-            HtmlAgilityPack.HtmlDocument doc = RetrieveHtml(URL);
-            string[] tab = new string[50];
-            int temp = 0;
-            HtmlNodeCollection linkNodes = doc.DocumentNode.SelectNodes(xPath);
-            ImageList imgs = new ImageList();
-
-            foreach (HtmlNode item in linkNodes)
-            {
-                tab[temp] = item.GetAttributeValue("src","nothing");
-                temp++;
-            }
-
-            return tab;
+            _URL = URL;
+            _xPath = xPath;
         }
 
-        private HtmlAgilityPack.HtmlDocument RetrieveHtml(string URL)
+        public List<string> Scrape()
         {
-            return web.Load(URL);
+            try
+            {
+                HtmlWeb web = new HtmlWeb();
+                HtmlAgilityPack.HtmlDocument doc = web.Load(_URL);
+                List<string> strTabLinks = RetrieveLinks(doc);
+                return strTabLinks;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                throw;
+            }
+        }
+
+        private List<string> RetrieveLinks(HtmlAgilityPack.HtmlDocument web)
+        {
+            List<string> returnList = new List<string>();
+            HtmlNodeCollection imgs = web.DocumentNode.SelectNodes(_xPath+"[@src]");
+
+            foreach (HtmlNode img in imgs)){
+                HtmlAttribute src = img
+            }
+            return returnList;
         }
     }
 }

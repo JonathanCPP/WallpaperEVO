@@ -22,7 +22,7 @@ namespace WallpaperEVO
         public static extern bool ReleaseCapture();
         #endregion
 
-        const string linkpart1 = "https://wallpaperscraft.com/search/?query=";
+        int index = 1;
 
         public frmMain()
         {
@@ -48,30 +48,74 @@ namespace WallpaperEVO
             WindowState = FormWindowState.Minimized;
         }
 
-        private void SendRequest(object sender, EventArgs e)
+        private void AttemptSearchButton(object sender, EventArgs e)
         {
-            Network net = new Network();
-            string[] tab = net.StartScrape(linkpart1 + txbSearch.Text, "/html/body/div/div[2]/div[2]/div/div[2]/div[1]/ul/li/a/span[1]/img");
-            ShowImages(tab);
+            AttemptSearch();
+        }
+        private void AttemptSearchEnter(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                AttemptSearch();
+            }
+        }
+        private void AttemptSearch()
+        {
+            if (CheckData())
+            {
+                List<string> imgTab = GetImages(GetURL(cmbWebsite.Text, txbSearch.Text, index), GetxPath(cmbWebsite.Text));
+                imgTab.ForEach(ShowImages);
+            }
+            else
+                MessageBox.Show("Missing arguments : choose a website and a tag");
         }
 
-        private void ShowImages(string[] tab)
+        bool CheckData()
         {
-            int xOffset = 0;
-            int yOffset = 0;
-
-            for (int i = 0; i < tab.Length; i++)
+            if (cmbWebsite.Text != string.Empty && txbSearch.Text != string.Empty)
+                return true;
+            else
+                return false;
+        }
+        string GetURL(string website, string tag, int index)
+        {
+            string strToReturn = string.Empty;
+            switch (website)
             {
-                if (tab[i] != null)
-                {
-                    PictureBox img = new PictureBox();
-                    pnlContent.Controls.Add(img);
-                    img.Load(@tab[i]);
-                    img.Location = new Point(xOffset, yOffset);
-                    img.SizeMode = PictureBoxSizeMode.AutoSize;
-                    xOffset += img.Width;
-                }
+                case "Wallpaperflare":
+                    strToReturn += Constants.Websites.Wallpaperflare.START + tag;
+                    if (index > 1)
+                        strToReturn += Constants.Websites.Wallpaperflare.PAGE + index.ToString();
+                    break;
+                default:
+                    return "error";
             }
+            return strToReturn;
+        }
+        string GetxPath(string website)
+        {
+            string strToReturn = string.Empty;
+            switch (website)
+            {
+                case "Wallpaperflare":
+                    strToReturn = Constants.Websites.Wallpaperflare.XPATH;
+                    break;
+                default:
+                    return "error";
+            }
+            return strToReturn;
+        }
+        List<string> GetImages(string website, string xPath)
+        {
+            Network nw = new Network(website,xPath);
+            return nw.Scrape();
+        }
+        int yImage = 0;
+        private void ShowImages(string link)
+        {
+            PictureBox pxb = new PictureBox();
+            pxb.Load(link);
+            yImage += pxb.Height;
         }
     }
 }

@@ -12,3 +12,17 @@ C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\bin\Debug\HtmlAgilityPa
 C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\bin\Debug\HtmlAgilityPack.xml
 C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.CopyComplete
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\bin\Debug\WallpaperEVO.exe.config
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\bin\Debug\WallpaperEVO.exe
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\bin\Debug\WallpaperEVO.pdb
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\bin\Debug\HtmlAgilityPack.dll
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\bin\Debug\HtmlAgilityPack.xml
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.frmMain.resources
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.Properties.Resources.resources
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.GenerateResource.cache
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.CoreCompileInputs.cache
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.CopyComplete
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.exe
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.pdb
+C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.AssemblyReference.cache
