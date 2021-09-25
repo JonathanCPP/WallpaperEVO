@@ -46,6 +46,7 @@ namespace WallpaperEVO
             this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.tmrRGB = new System.Windows.Forms.Timer(this.components);
             this.lblLogo = new System.Windows.Forms.Label();
+            this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.pnlToolbar.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +175,7 @@ namespace WallpaperEVO
             this.cmbWebsite.Name = "cmbWebsite";
             this.cmbWebsite.Size = new System.Drawing.Size(174, 33);
             this.cmbWebsite.TabIndex = 3;
+            this.ttInfo.SetToolTip(this.cmbWebsite, "Choose a website");
             // 
             // btnSearch
             // 
@@ -184,6 +186,7 @@ namespace WallpaperEVO
             this.btnSearch.Size = new System.Drawing.Size(86, 29);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "Search";
+            this.ttInfo.SetToolTip(this.btnSearch, "Start search");
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.AttemptSearchButton);
             // 
@@ -199,6 +202,7 @@ namespace WallpaperEVO
             this.txbSearch.Size = new System.Drawing.Size(476, 29);
             this.txbSearch.TabIndex = 0;
             this.txbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ttInfo.SetToolTip(this.txbSearch, "Choose a keyword to search");
             this.txbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AttemptSearchEnter);
             // 
             // pnlContent
@@ -240,6 +244,12 @@ namespace WallpaperEVO
             this.lblLogo.Text = "WallpaperEVO";
             this.lblLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
             // 
+            // ttInfo
+            // 
+            this.ttInfo.AutomaticDelay = 700;
+            this.ttInfo.BackColor = System.Drawing.SystemColors.ControlText;
+            this.ttInfo.ForeColor = System.Drawing.SystemColors.ControlDark;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +289,7 @@ namespace WallpaperEVO
         private System.Windows.Forms.Timer tmrTime;
         private System.Windows.Forms.Timer tmrRGB;
         private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.ToolTip ttInfo;
     }
 }
 
