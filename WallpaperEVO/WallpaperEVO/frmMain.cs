@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace WallpaperEVO
@@ -61,7 +62,7 @@ namespace WallpaperEVO
         }
         private void AttemptSearchEnter(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 AttemptSearch();
             }
@@ -122,7 +123,7 @@ namespace WallpaperEVO
         }
         List<string> GetImages(string website, string xPath)
         {
-            Network nw = new Network(website,xPath);
+            Network nw = new Network(website, xPath);
             return nw.Scrape();
         }
         private void ShowImages(string link)
@@ -132,7 +133,7 @@ namespace WallpaperEVO
             pnlContent.Controls.Add(pxb);
             pxb.SizeMode = PictureBoxSizeMode.StretchImage;
             pxb.BorderStyle = BorderStyle.Fixed3D;
-            pxb.Size = new Size(235,127);
+            pxb.Size = new Size(235, 127);
             pxb.Location = new Point(xImage, yImage);
 
             temp++;
@@ -149,6 +150,28 @@ namespace WallpaperEVO
         private void tmrTime_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToString();
+        }
+
+        int clrBrightness = 130;
+        bool upDown;
+        Random rdm = new Random();
+        private void tmrRGB_Tick(object sender, EventArgs e)
+        {
+            Color clr = new Color();
+
+            if (clrBrightness == 130 || clrBrightness == 255)
+                upDown = !upDown;
+
+            if (upDown)
+                clrBrightness++;
+            else
+                clrBrightness--;
+
+            clr = Color.FromArgb(clrBrightness, clrBrightness, clrBrightness);
+
+            lblQuote.ForeColor = clr;
+            lblLogo.ForeColor = clr;
+            lblTime.ForeColor = clr;
         }
     }
 }
