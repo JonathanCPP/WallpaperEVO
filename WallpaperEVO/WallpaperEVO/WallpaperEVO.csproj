@@ -101,5 +101,17 @@
   <ItemGroup>
     <None Include="Resources\info3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1057074-most-popular-arch-linux-wallpaper-1920x1080.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WallpaperEVO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hug.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -27,14 +27,13 @@ namespace WallpaperEVO
         int xImage = 0;
         int temp = 0;
 
-        void ToggleControls()
-        {
-            pnlSearch.Enabled = !pnlSearch.Enabled;
-        }
-
         public frmMain()
         {
             InitializeComponent();
+        }
+        void ToggleControls()
+        {
+            pnlSearch.Enabled = !pnlSearch.Enabled;
         }
 
         private void DragMove(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -129,8 +128,11 @@ namespace WallpaperEVO
         private void ShowImages(string link)
         {
             PictureBox pxb = new PictureBox();
-            pxb.Size = new Size(235,127);
+            pxb.LoadAsync(link);
+            pnlContent.Controls.Add(pxb);
             pxb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pxb.BorderStyle = BorderStyle.Fixed3D;
+            pxb.Size = new Size(235,127);
             pxb.Location = new Point(xImage, yImage);
 
             temp++;
@@ -142,8 +144,11 @@ namespace WallpaperEVO
                 xImage = 0;
                 yImage += 138;
             }
-            pxb.LoadAsync(link);
-            pnlContent.Controls.Add(pxb);
+        }
+
+        private void tmrTime_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString();
         }
     }
 }

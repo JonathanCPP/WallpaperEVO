@@ -31,11 +31,13 @@ namespace WallpaperEVO
         {
             this.components = new System.ComponentModel.Container();
             this.pnlToolbar = new System.Windows.Forms.Panel();
-            this.lblLogo = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblQuote = new System.Windows.Forms.Label();
+            this.pxbLogo = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.pnlSearch = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblKeyword = new System.Windows.Forms.Label();
             this.lblWebsite = new System.Windows.Forms.Label();
             this.cmbWebsite = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -44,7 +46,9 @@ namespace WallpaperEVO
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.imagesDB = new System.Windows.Forms.ImageList(this.components);
+            this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.pnlToolbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbLogo)).BeginInit();
             this.pnlSearch.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +56,9 @@ namespace WallpaperEVO
             // 
             this.pnlToolbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlToolbar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlToolbar.Controls.Add(this.lblLogo);
+            this.pnlToolbar.Controls.Add(this.lblTime);
+            this.pnlToolbar.Controls.Add(this.lblQuote);
+            this.pnlToolbar.Controls.Add(this.pxbLogo);
             this.pnlToolbar.Controls.Add(this.btnMinimize);
             this.pnlToolbar.Controls.Add(this.btnQuit);
             this.pnlToolbar.Location = new System.Drawing.Point(12, 5);
@@ -61,17 +67,42 @@ namespace WallpaperEVO
             this.pnlToolbar.TabIndex = 0;
             this.pnlToolbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
             // 
-            // lblLogo
+            // lblTime
             // 
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.lblLogo.Location = new System.Drawing.Point(402, -2);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(219, 33);
-            this.lblLogo.TabIndex = 3;
-            this.lblLogo.Text = "WallpaperEVO";
-            this.lblLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
+            this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTime.Location = new System.Drawing.Point(750, 10);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(124, 15);
+            this.lblTime.TabIndex = 6;
+            this.lblTime.Text = "00/00/0000 00:00:00";
+            this.lblTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
+            // 
+            // lblQuote
+            // 
+            this.lblQuote.AutoSize = true;
+            this.lblQuote.Font = new System.Drawing.Font("Segoe UI Black", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuote.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblQuote.Location = new System.Drawing.Point(191, 11);
+            this.lblQuote.Name = "lblQuote";
+            this.lblQuote.Size = new System.Drawing.Size(224, 15);
+            this.lblQuote.TabIndex = 4;
+            this.lblQuote.Text = "Wallpaper management made easy";
+            this.lblQuote.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
+            // 
+            // pxbLogo
+            // 
+            this.pxbLogo.BackgroundImage = global::WallpaperEVO.Properties.Resources.WallpaperEVO;
+            this.pxbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pxbLogo.Location = new System.Drawing.Point(-19, -10);
+            this.pxbLogo.Name = "pxbLogo";
+            this.pxbLogo.Size = new System.Drawing.Size(228, 47);
+            this.pxbLogo.TabIndex = 3;
+            this.pxbLogo.TabStop = false;
+            this.pxbLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
             // 
             // btnMinimize
             // 
@@ -80,13 +111,13 @@ namespace WallpaperEVO
             this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimize.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnMinimize.Location = new System.Drawing.Point(886, 5);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(45, 25);
             this.btnMinimize.TabIndex = 2;
-            this.btnMinimize.Text = "-";
+            this.btnMinimize.Text = "━";
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.MinimizeApplication);
             // 
@@ -97,7 +128,7 @@ namespace WallpaperEVO
             this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnQuit.Location = new System.Drawing.Point(937, 5);
             this.btnQuit.Name = "btnQuit";
@@ -111,7 +142,7 @@ namespace WallpaperEVO
             // 
             this.pnlSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
             this.pnlSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSearch.Controls.Add(this.label1);
+            this.pnlSearch.Controls.Add(this.lblKeyword);
             this.pnlSearch.Controls.Add(this.lblWebsite);
             this.pnlSearch.Controls.Add(this.cmbWebsite);
             this.pnlSearch.Controls.Add(this.btnSearch);
@@ -123,25 +154,25 @@ namespace WallpaperEVO
             this.pnlSearch.Size = new System.Drawing.Size(989, 92);
             this.pnlSearch.TabIndex = 1;
             // 
-            // label1
+            // lblKeyword
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(476, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 18);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Keyword";
+            this.lblKeyword.AutoSize = true;
+            this.lblKeyword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic);
+            this.lblKeyword.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblKeyword.Location = new System.Drawing.Point(476, 7);
+            this.lblKeyword.Name = "lblKeyword";
+            this.lblKeyword.Size = new System.Drawing.Size(64, 20);
+            this.lblKeyword.TabIndex = 5;
+            this.lblKeyword.Text = "Keyword";
             // 
             // lblWebsite
             // 
             this.lblWebsite.AutoSize = true;
-            this.lblWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWebsite.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWebsite.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lblWebsite.Location = new System.Drawing.Point(147, 5);
             this.lblWebsite.Name = "lblWebsite";
-            this.lblWebsite.Size = new System.Drawing.Size(62, 18);
+            this.lblWebsite.Size = new System.Drawing.Size(60, 20);
             this.lblWebsite.TabIndex = 4;
             this.lblWebsite.Text = "Website";
             // 
@@ -220,7 +251,6 @@ namespace WallpaperEVO
             // 
             this.pnlContent.AutoScroll = true;
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.pnlContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlContent.Location = new System.Drawing.Point(12, 144);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(989, 476);
@@ -231,6 +261,12 @@ namespace WallpaperEVO
             this.imagesDB.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imagesDB.ImageSize = new System.Drawing.Size(16, 16);
             this.imagesDB.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // tmrTime
+            // 
+            this.tmrTime.Enabled = true;
+            this.tmrTime.Interval = 1000;
+            this.tmrTime.Tick += new System.EventHandler(this.tmrTime_Tick);
             // 
             // frmMain
             // 
@@ -246,6 +282,7 @@ namespace WallpaperEVO
             this.Text = "WallpaperEVO";
             this.pnlToolbar.ResumeLayout(false);
             this.pnlToolbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbLogo)).EndInit();
             this.pnlSearch.ResumeLayout(false);
             this.pnlSearch.PerformLayout();
             this.ResumeLayout(false);
@@ -263,11 +300,14 @@ namespace WallpaperEVO
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.ImageList imagesDB;
         private System.Windows.Forms.ComboBox cmbWebsite;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblKeyword;
         private System.Windows.Forms.Label lblWebsite;
+        private System.Windows.Forms.PictureBox pxbLogo;
+        private System.Windows.Forms.Label lblQuote;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Timer tmrTime;
     }
 }
 
