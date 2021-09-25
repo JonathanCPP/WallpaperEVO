@@ -41,8 +41,6 @@ namespace WallpaperEVO
             this.lblWebsite = new System.Windows.Forms.Label();
             this.cmbWebsite = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnInfo = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.imagesDB = new System.Windows.Forms.ImageList(this.components);
@@ -61,9 +59,9 @@ namespace WallpaperEVO
             this.pnlToolbar.Controls.Add(this.pxbLogo);
             this.pnlToolbar.Controls.Add(this.btnMinimize);
             this.pnlToolbar.Controls.Add(this.btnQuit);
-            this.pnlToolbar.Location = new System.Drawing.Point(12, 5);
+            this.pnlToolbar.Location = new System.Drawing.Point(12, 9);
             this.pnlToolbar.Name = "pnlToolbar";
-            this.pnlToolbar.Size = new System.Drawing.Size(989, 35);
+            this.pnlToolbar.Size = new System.Drawing.Size(989, 38);
             this.pnlToolbar.TabIndex = 0;
             this.pnlToolbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
             // 
@@ -128,7 +126,7 @@ namespace WallpaperEVO
             this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Font = new System.Drawing.Font("Segoe UI Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Bold);
             this.btnQuit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnQuit.Location = new System.Drawing.Point(937, 5);
             this.btnQuit.Name = "btnQuit";
@@ -141,17 +139,14 @@ namespace WallpaperEVO
             // pnlSearch
             // 
             this.pnlSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.pnlSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSearch.Controls.Add(this.lblKeyword);
             this.pnlSearch.Controls.Add(this.lblWebsite);
             this.pnlSearch.Controls.Add(this.cmbWebsite);
             this.pnlSearch.Controls.Add(this.btnSearch);
-            this.pnlSearch.Controls.Add(this.btnInfo);
-            this.pnlSearch.Controls.Add(this.btnSettings);
             this.pnlSearch.Controls.Add(this.txbSearch);
-            this.pnlSearch.Location = new System.Drawing.Point(12, 46);
+            this.pnlSearch.Location = new System.Drawing.Point(12, 53);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(989, 92);
+            this.pnlSearch.Size = new System.Drawing.Size(989, 79);
             this.pnlSearch.TabIndex = 1;
             // 
             // lblKeyword
@@ -181,14 +176,14 @@ namespace WallpaperEVO
             this.cmbWebsite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmbWebsite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWebsite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.cmbWebsite.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbWebsite.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.cmbWebsite.FormattingEnabled = true;
             this.cmbWebsite.Items.AddRange(new object[] {
             "Wallpaperflare"});
             this.cmbWebsite.Location = new System.Drawing.Point(91, 26);
             this.cmbWebsite.Name = "cmbWebsite";
-            this.cmbWebsite.Size = new System.Drawing.Size(174, 32);
+            this.cmbWebsite.Size = new System.Drawing.Size(174, 33);
             this.cmbWebsite.TabIndex = 3;
             // 
             // btnSearch
@@ -202,36 +197,6 @@ namespace WallpaperEVO
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.AttemptSearchButton);
-            // 
-            // btnInfo
-            // 
-            this.btnInfo.BackgroundImage = global::WallpaperEVO.Properties.Resources.info3;
-            this.btnInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInfo.FlatAppearance.BorderSize = 0;
-            this.btnInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.btnInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfo.Location = new System.Drawing.Point(943, 7);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(35, 35);
-            this.btnInfo.TabIndex = 2;
-            this.btnInfo.UseVisualStyleBackColor = true;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackgroundImage = global::WallpaperEVO.Properties.Resources.settings;
-            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.Location = new System.Drawing.Point(902, 7);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(35, 35);
-            this.btnSettings.TabIndex = 1;
-            this.btnSettings.UseVisualStyleBackColor = true;
             // 
             // txbSearch
             // 
@@ -251,9 +216,9 @@ namespace WallpaperEVO
             // 
             this.pnlContent.AutoScroll = true;
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.pnlContent.Location = new System.Drawing.Point(12, 144);
+            this.pnlContent.Location = new System.Drawing.Point(12, 138);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(989, 476);
+            this.pnlContent.Size = new System.Drawing.Size(989, 500);
             this.pnlContent.TabIndex = 2;
             // 
             // imagesDB
@@ -273,7 +238,7 @@ namespace WallpaperEVO
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(1013, 632);
+            this.ClientSize = new System.Drawing.Size(1013, 650);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.pnlToolbar);
@@ -297,8 +262,6 @@ namespace WallpaperEVO
         private System.Windows.Forms.Panel pnlSearch;
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.TextBox txbSearch;
-        private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ImageList imagesDB;
         private System.Windows.Forms.ComboBox cmbWebsite;
