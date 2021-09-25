@@ -36,9 +36,6 @@ namespace WallpaperEVO
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.pnlSearch = new System.Windows.Forms.Panel();
-            this.lblKeyword = new System.Windows.Forms.Label();
-            this.lblWebsite = new System.Windows.Forms.Label();
-            this.cmbWebsite = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.pnlContent = new System.Windows.Forms.Panel();
@@ -129,9 +126,6 @@ namespace WallpaperEVO
             // pnlSearch
             // 
             this.pnlSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(53)))));
-            this.pnlSearch.Controls.Add(this.lblKeyword);
-            this.pnlSearch.Controls.Add(this.lblWebsite);
-            this.pnlSearch.Controls.Add(this.cmbWebsite);
             this.pnlSearch.Controls.Add(this.btnSearch);
             this.pnlSearch.Controls.Add(this.txbSearch);
             this.pnlSearch.Location = new System.Drawing.Point(12, 53);
@@ -139,49 +133,11 @@ namespace WallpaperEVO
             this.pnlSearch.Size = new System.Drawing.Size(989, 79);
             this.pnlSearch.TabIndex = 1;
             // 
-            // lblKeyword
-            // 
-            this.lblKeyword.AutoSize = true;
-            this.lblKeyword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic);
-            this.lblKeyword.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblKeyword.Location = new System.Drawing.Point(476, 7);
-            this.lblKeyword.Name = "lblKeyword";
-            this.lblKeyword.Size = new System.Drawing.Size(64, 20);
-            this.lblKeyword.TabIndex = 5;
-            this.lblKeyword.Text = "Keyword";
-            // 
-            // lblWebsite
-            // 
-            this.lblWebsite.AutoSize = true;
-            this.lblWebsite.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWebsite.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblWebsite.Location = new System.Drawing.Point(147, 5);
-            this.lblWebsite.Name = "lblWebsite";
-            this.lblWebsite.Size = new System.Drawing.Size(60, 20);
-            this.lblWebsite.TabIndex = 4;
-            this.lblWebsite.Text = "Website";
-            // 
-            // cmbWebsite
-            // 
-            this.cmbWebsite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cmbWebsite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWebsite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbWebsite.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbWebsite.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.cmbWebsite.FormattingEnabled = true;
-            this.cmbWebsite.Items.AddRange(new object[] {
-            "Wallpaperflare"});
-            this.cmbWebsite.Location = new System.Drawing.Point(91, 26);
-            this.cmbWebsite.Name = "cmbWebsite";
-            this.cmbWebsite.Size = new System.Drawing.Size(174, 33);
-            this.cmbWebsite.TabIndex = 3;
-            this.ttInfo.SetToolTip(this.cmbWebsite, "Choose a website");
-            // 
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSearch.Location = new System.Drawing.Point(753, 28);
+            this.btnSearch.Location = new System.Drawing.Point(706, 28);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(86, 29);
             this.btnSearch.TabIndex = 0;
@@ -196,7 +152,7 @@ namespace WallpaperEVO
             this.txbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.txbSearch.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbSearch.Location = new System.Drawing.Point(271, 28);
+            this.txbSearch.Location = new System.Drawing.Point(224, 28);
             this.txbSearch.MaxLength = 100;
             this.txbSearch.Name = "txbSearch";
             this.txbSearch.Size = new System.Drawing.Size(476, 29);
@@ -281,9 +237,6 @@ namespace WallpaperEVO
         private System.Windows.Forms.TextBox txbSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ImageList imagesDB;
-        private System.Windows.Forms.ComboBox cmbWebsite;
-        private System.Windows.Forms.Label lblKeyword;
-        private System.Windows.Forms.Label lblWebsite;
         private System.Windows.Forms.Label lblQuote;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer tmrTime;

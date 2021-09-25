@@ -11,27 +11,31 @@ namespace WallpaperEVO
     class Network
     {
         private string _URL = string.Empty;
-        private string _xPath = string.Empty;
+        private string _xPathThumb = string.Empty;
+        private string _xPathLink = string.Empty;
+        private string _xPathHD = string.Empty;
 
-        public Network(string URL, string xPath)
+        public Network(string URL, string xPathThumb, string xPathLink)
         {
             _URL = URL;
-            _xPath = xPath;
+            _xPathThumb = xPathThumb;
+            _xPathLink = xPathLink;
         }
 
-        public List<string> Scrape()
+        public Image Scrape()
         {
             HtmlWeb web = new HtmlWeb();
             HtmlAgilityPack.HtmlDocument doc = web.Load(_URL);
-            List<string> strTabLinks = RetrieveThumbnails(doc);
-            return strTabLinks;
+            Image img = new Image;
+            img.thumbList = RetrieveThumbnails(doc);
+            return img;
         }
 
         private List<string> RetrieveThumbnails(HtmlAgilityPack.HtmlDocument web)
         {
             List<string> returnList = new List<string>();
 
-            HtmlNodeCollection nodes = web.DocumentNode.SelectNodes(_xPath);
+            HtmlNodeCollection nodes = web.DocumentNode.SelectNodes(_xPathThumb);
 
             if (nodes != null)
             {

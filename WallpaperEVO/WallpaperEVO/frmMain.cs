@@ -28,6 +28,12 @@ namespace WallpaperEVO
         int xImage = 0;
         int temp = 0;
 
+        public const string START = "https://www.wallpaperflare.com/search?wallpaper=";
+        public const string PAGE = "&page=";
+        public const string XPATH_THUMB = "/html/body/main/section/ul/li/figure/a/img";
+        public const string XPATH_LINK = "/html/body/main/section/ul/li/figure/a/img";
+        public const string XPATH_HD = "/html/body/main/section/ul/li/figure/a/img";
+
         public frmMain()
         {
             InitializeComponent();
@@ -77,9 +83,10 @@ namespace WallpaperEVO
                 xImage = 0;
                 yImage = 0;
                 temp = 0;
+                Image c_img = new Image();
 
-                List<string> imgTab = GetImages(GetURL(cmbWebsite.Text, txbSearch.Text, index), GetxPath(cmbWebsite.Text));
-                imgTab.ForEach(ShowImages);
+                c_img = GetImages(GetURL(txbSearch.Text, index), XPATH_THUMB, XPATH_LINK);
+                ShowImages(c_img);
             }
             else
                 MessageBox.Show("Missing arguments : choose a website and a tag");
@@ -88,63 +95,49 @@ namespace WallpaperEVO
 
         bool CheckData()
         {
-            if (cmbWebsite.Text != string.Empty && txbSearch.Text != string.Empty)
+            if (txbSearch.Text != string.Empty)
                 return true;
             else
                 return false;
         }
-        string GetURL(string website, string tag, int index)
+        string GetURL(string tag, int index)
         {
             string strToReturn = string.Empty;
-            switch (website)
-            {
-                case "Wallpaperflare":
-                    strToReturn += Constants.Websites.Wallpaperflare.START + tag;
-                    if (index > 1)
-                        strToReturn += Constants.Websites.Wallpaperflare.PAGE + index.ToString();
-                    break;
-                default:
-                    return "error";
-            }
+            strToReturn = START + tag;
+
+            if (index != 1)
+                strToReturn += PAGE + index;
             return strToReturn;
         }
-        string GetxPath(string website)
+        List<string> GetImages(string website, string xPathThumb, string xPathLink)
         {
-            string strToReturn = string.Empty;
-            switch (website)
-            {
-                case "Wallpaperflare":
-                    strToReturn = Constants.Websites.Wallpaperflare.XPATH;
-                    break;
-                default:
-                    return "error";
-            }
-            return strToReturn;
-        }
-        List<string> GetImages(string website, string xPath)
-        {
-            Network nw = new Network(website, xPath);
+            Network nw = new Network(website, xPathThumb, xPathLink);
             return nw.Scrape();
         }
-        private void ShowImages(string link)
+        private void ShowImages(Image c_img)
         {
-            PictureBox pxb = new PictureBox();
-            pxb.LoadAsync(link);
-            pnlContent.Controls.Add(pxb);
-            pxb.SizeMode = PictureBoxSizeMode.StretchImage;
-            pxb.BorderStyle = BorderStyle.Fixed3D;
-            pxb.Size = new Size(235, 127);
-            pxb.Location = new Point(xImage, yImage);
-
-            temp++;
-            if (temp < 4)
-                xImage += 245;
-            else
+            for (int i = 0; i < c_img.thumbList.Count; i++)
             {
-                temp = 0;
-                xImage = 0;
-                yImage += 138;
+                PictureBox pxb = new PictureBox();
+                pxb.LoadAsync(c_img.thumbList[i]);
+                pxb.Tag = c_img.linkList[i];
+                pnlContent.Controls.Add(pxb);
+                pxb.SizeMode = PictureBoxSizeMode.StretchImage;
+                pxb.BorderStyle = BorderStyle.Fixed3D;
+                pxb.Size = new Size(235, 127);
+                pxb.Location = new Point(xImage, yImage);
+
+                temp++;
+                if (temp < 4)
+                    xImage += 245;
+                else
+                {
+                    temp = 0;
+                    xImage = 0;
+                    yImage += 138;
+                }
             }
+
         }
 
         private void tmrTime_Tick(object sender, EventArgs e)
