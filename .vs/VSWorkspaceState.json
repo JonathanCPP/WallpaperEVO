@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WallpaperEVO",
+    "\\WallpaperEVO\\WallpaperEVO"
   ],
-  "SelectedNode": "\\WallpaperEVO.sln",
+  "SelectedNode": "\\WallpaperEVO\\WallpaperEVO\\Network.cs",
   "PreviewInSolutionExplorer": false
 }

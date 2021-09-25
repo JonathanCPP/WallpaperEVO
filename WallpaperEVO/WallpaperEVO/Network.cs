@@ -31,9 +31,14 @@ namespace WallpaperEVO
         {
             List<string> returnList = new List<string>();
 
-            foreach (HtmlNode node in web.DocumentNode.SelectNodes(_xPath))
+            HtmlNodeCollection nodes = web.DocumentNode.SelectNodes(_xPath);
+
+            if (nodes != null)
             {
-                returnList.Add(node.Attributes["data-src"].Value);
+                foreach (HtmlNode node in nodes)
+                {
+                    returnList.Add(node.Attributes["data-src"].Value);
+                }
             }
             return returnList;
         }

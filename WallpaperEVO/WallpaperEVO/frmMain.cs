@@ -23,6 +23,14 @@ namespace WallpaperEVO
         #endregion
 
         int index = 1;
+        int yImage = 0;
+        int xImage = 0;
+        int temp = 0;
+
+        void ToggleControls()
+        {
+            pnlSearch.Enabled = !pnlSearch.Enabled;
+        }
 
         public frmMain()
         {
@@ -61,13 +69,21 @@ namespace WallpaperEVO
         }
         private void AttemptSearch()
         {
+            ToggleControls();
             if (CheckData())
             {
+
+                pnlContent.Controls.Clear();
+                xImage = 0;
+                yImage = 0;
+                temp = 0;
+
                 List<string> imgTab = GetImages(GetURL(cmbWebsite.Text, txbSearch.Text, index), GetxPath(cmbWebsite.Text));
                 imgTab.ForEach(ShowImages);
             }
             else
                 MessageBox.Show("Missing arguments : choose a website and a tag");
+            ToggleControls();
         }
 
         bool CheckData()
@@ -110,9 +126,6 @@ namespace WallpaperEVO
             Network nw = new Network(website,xPath);
             return nw.Scrape();
         }
-        int yImage = 0;
-        int xImage = 0;
-        int temp = 0;
         private void ShowImages(string link)
         {
             PictureBox pxb = new PictureBox();
@@ -129,7 +142,7 @@ namespace WallpaperEVO
                 xImage = 0;
                 yImage += 138;
             }
-            pxb.Load(link);
+            pxb.LoadAsync(link);
             pnlContent.Controls.Add(pxb);
         }
     }
