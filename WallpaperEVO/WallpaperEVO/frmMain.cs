@@ -111,11 +111,26 @@ namespace WallpaperEVO
             return nw.Scrape();
         }
         int yImage = 0;
+        int xImage = 0;
+        int temp = 0;
         private void ShowImages(string link)
         {
             PictureBox pxb = new PictureBox();
+            pxb.Size = new Size(235,127);
+            pxb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pxb.Location = new Point(xImage, yImage);
+
+            temp++;
+            if (temp < 4)
+                xImage += 245;
+            else
+            {
+                temp = 0;
+                xImage = 0;
+                yImage += 138;
+            }
             pxb.Load(link);
-            yImage += pxb.Height;
+            pnlContent.Controls.Add(pxb);
         }
     }
 }

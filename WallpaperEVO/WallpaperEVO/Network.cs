@@ -21,29 +21,23 @@ namespace WallpaperEVO
 
         public List<string> Scrape()
         {
-            try
-            {
-                HtmlWeb web = new HtmlWeb();
-                HtmlAgilityPack.HtmlDocument doc = web.Load(_URL);
-                List<string> strTabLinks = RetrieveLinks(doc);
-                return strTabLinks;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-                throw;
-            }
+            HtmlWeb web = new HtmlWeb();
+            HtmlAgilityPack.HtmlDocument doc = web.Load(_URL);
+            List<string> strTabLinks = RetrieveThumbnails(doc);
+            return strTabLinks;
         }
 
-        private List<string> RetrieveLinks(HtmlAgilityPack.HtmlDocument web)
+        private List<string> RetrieveThumbnails(HtmlAgilityPack.HtmlDocument web)
         {
             List<string> returnList = new List<string>();
-            HtmlNodeCollection imgs = web.DocumentNode.SelectNodes(_xPath+"[@src]");
 
-            foreach (HtmlNode img in imgs)){
-                HtmlAttribute src = img
+            foreach (HtmlNode node in web.DocumentNode.SelectNodes(_xPath))
+            {
+                returnList.Add(node.Attributes["data-src"].Value);
             }
             return returnList;
         }
+
+
     }
 }
