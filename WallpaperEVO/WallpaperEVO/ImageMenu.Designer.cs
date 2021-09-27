@@ -32,6 +32,7 @@ namespace WallpaperEVO
             this.pxbHDImage = new System.Windows.Forms.PictureBox();
             this.btnQuit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pxbHDImage)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,16 +73,31 @@ namespace WallpaperEVO
             this.panel1.TabIndex = 4;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMove);
             // 
+            // btnSet
+            // 
+            this.btnSet.BackColor = System.Drawing.Color.Gray;
+            this.btnSet.FlatAppearance.BorderSize = 0;
+            this.btnSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSet.Location = new System.Drawing.Point(356, 430);
+            this.btnSet.Name = "btnSet";
+            this.btnSet.Size = new System.Drawing.Size(107, 58);
+            this.btnSet.TabIndex = 4;
+            this.btnSet.Text = "Set as wallpaper";
+            this.btnSet.UseVisualStyleBackColor = false;
+            this.btnSet.Click += new System.EventHandler(this.SetWallpaper);
+            // 
             // ImageMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(818, 500);
+            this.Controls.Add(this.btnSet);
             this.Controls.Add(this.pxbHDImage);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ImageMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ImageMenu";
             ((System.ComponentModel.ISupportInitialize)(this.pxbHDImage)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -94,5 +110,6 @@ namespace WallpaperEVO
         private System.Windows.Forms.PictureBox pxbHDImage;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnSet;
     }
 }

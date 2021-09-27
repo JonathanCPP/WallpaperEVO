@@ -39,9 +39,12 @@ namespace WallpaperEVO
         }
         #endregion
 
+        string linkOfImage = string.Empty;
+
         public ImageMenu(string link)
         {
             InitializeComponent();
+            linkOfImage = link;
             pxbHDImage.LoadAsync(link);
             pxbHDImage.SizeMode = PictureBoxSizeMode.StretchImage;
         }
@@ -91,6 +94,12 @@ namespace WallpaperEVO
                 0,
                 tempPath,
                 SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+        }
+
+        private void SetWallpaper(object sender, EventArgs e)
+        {
+            Uri myUri = new Uri(linkOfImage, UriKind.Absolute);
+            Set(myUri, Style.Stretched);
         }
     }
 }
