@@ -26,3 +26,4 @@ C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\
 C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.exe
 C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.pdb
 C:\Users\VM-CLEAN\Source\Repos\WallpaperEVO\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.csproj.AssemblyReference.cache
+C:\Users\pe95cpw\Desktop\clone\WallpaperEVO\WallpaperEVO\obj\Debug\WallpaperEVO.ImageMenu.resources

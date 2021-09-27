@@ -143,9 +143,14 @@ namespace WallpaperEVO
         {
             PictureBox pxb = sender as PictureBox;
             Network nw = new Network("", "", "");
+            string imgLink = string.Empty;
             List<string> SingleImageLink = nw.GetHDImage(pxb.Tag.ToString(), XPATH_HD, "src");
-            if (SingleImageLink[0] != null)
-                MessageBox.Show(SingleImageLink[0]);
+            if (SingleImageLink != null)
+            {
+                imgLink = SingleImageLink[0];
+            }
+            ImageMenu imgM = new ImageMenu(imgLink);
+            imgM.ShowDialog();
         }
 
         private void tmrTime_Tick(object sender, EventArgs e)

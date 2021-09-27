@@ -56,11 +56,20 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Image.cs" />
+    <Compile Include="ImageMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageMenu.Designer.cs">
+      <DependentUpon>ImageMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Network.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageMenu.resx">
+      <DependentUpon>ImageMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
