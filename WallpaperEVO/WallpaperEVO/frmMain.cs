@@ -144,13 +144,19 @@ namespace WallpaperEVO
             PictureBox pxb = sender as PictureBox;
             Network nw = new Network("", "", "");
             string imgLink = string.Empty;
+
             List<string> SingleImageLink = nw.GetHDImage(pxb.Tag.ToString(), XPATH_HD, "src");
-            if (SingleImageLink != null)
+            if (SingleImageLink.Count > 0)
             {
                 imgLink = SingleImageLink[0];
+
+                ImageMenu imgM = new ImageMenu(imgLink);
+                imgM.ShowDialog();
             }
-            ImageMenu imgM = new ImageMenu(imgLink);
-            imgM.ShowDialog();
+            else
+            {
+                MessageBox.Show("Cannot open image");
+            }
         }
 
         private void tmrTime_Tick(object sender, EventArgs e)
