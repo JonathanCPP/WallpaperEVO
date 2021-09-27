@@ -10,5 +10,6 @@ namespace WallpaperEVO
     {
         public List<string> thumbList = new List<string>();
         public List<string> linkList = new List<string>();
+        public List<string> HDList = new List<string>();
     }
 }

@@ -28,16 +28,18 @@ namespace WallpaperEVO
         int xImage = 0;
         int temp = 0;
 
-        public const string START = "https://www.wallpaperflare.com/search?wallpaper=";
-        public const string PAGE = "&page=";
-        public const string XPATH_THUMB = "/html/body/main/section/ul/li/figure/a/img";
-        public const string XPATH_LINK = "/html/body/main/section/ul/li/figure/a/img";
-        public const string XPATH_HD = "/html/body/main/section/ul/li/figure/a/img";
+        public const string START = "https://wallpaperscraft.com/search/?order=&page=";
+        public const string QUERY = "&query=";
+        public const string END = "&size=1920x1080";
+        public const string XPATH_THUMB = "/html/body/div/div[2]/div[2]/div/div[2]/div[1]/ul/li/a/span[1]/img";
+        public const string XPATH_LINK = "/html/body/main/section/ul/li/figure/a";
+        public const string XPATH_HD = "//*[@id=\"show_img\"]";
 
         public frmMain()
         {
             InitializeComponent();
         }
+
         void ToggleControls()
         {
             pnlSearch.Enabled = !pnlSearch.Enabled;
@@ -85,7 +87,7 @@ namespace WallpaperEVO
                 temp = 0;
                 Image c_img = new Image();
 
-                c_img = GetImages(GetURL(txbSearch.Text, index), XPATH_THUMB, XPATH_LINK);
+                c_img = GetImages(GetURL(txbSearch.Text, index), XPATH_THUMB, XPATH_LINK,XPATH_HD);
                 ShowImages(c_img);
             }
             else
@@ -103,13 +105,10 @@ namespace WallpaperEVO
         string GetURL(string tag, int index)
         {
             string strToReturn = string.Empty;
-            strToReturn = START + tag;
-
-            if (index != 1)
-                strToReturn += PAGE + index;
+            strToReturn = START + index + QUERY + tag + END;
             return strToReturn;
         }
-        List<string> GetImages(string website, string xPathThumb, string xPathLink)
+        Image GetImages(string website, string xPathThumb, string xPathLink, string xPathHD)
         {
             Network nw = new Network(website, xPathThumb, xPathLink);
             return nw.Scrape();
@@ -120,10 +119,11 @@ namespace WallpaperEVO
             {
                 PictureBox pxb = new PictureBox();
                 pxb.LoadAsync(c_img.thumbList[i]);
+                pxb.Click += new EventHandler(showlink);
                 pxb.Tag = c_img.linkList[i];
                 pnlContent.Controls.Add(pxb);
                 pxb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pxb.BorderStyle = BorderStyle.Fixed3D;
+                pxb.BorderStyle = BorderStyle.FixedSingle;
                 pxb.Size = new Size(235, 127);
                 pxb.Location = new Point(xImage, yImage);
 
@@ -138,6 +138,14 @@ namespace WallpaperEVO
                 }
             }
 
+        }
+
+        private void showlink(object sender, EventArgs e)
+        {
+            PictureBox pxb = sender as PictureBox;
+            Network nw = new Network("","","");
+            string base64data = nw.GetHDImage(pxb.Tag.ToString()+"/download/1920x1080",XPATH_HD,"src");
+            MessageBox.Show(base64data);
         }
 
         private void tmrTime_Tick(object sender, EventArgs e)

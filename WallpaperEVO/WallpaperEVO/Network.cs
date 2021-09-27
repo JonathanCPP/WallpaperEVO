@@ -13,7 +13,6 @@ namespace WallpaperEVO
         private string _URL = string.Empty;
         private string _xPathThumb = string.Empty;
         private string _xPathLink = string.Empty;
-        private string _xPathHD = string.Empty;
 
         public Network(string URL, string xPathThumb, string xPathLink)
         {
@@ -25,28 +24,41 @@ namespace WallpaperEVO
         public Image Scrape()
         {
             HtmlWeb web = new HtmlWeb();
+            Image img = new Image();
+
             HtmlAgilityPack.HtmlDocument doc = web.Load(_URL);
-            Image img = new Image;
-            img.thumbList = RetrieveThumbnails(doc);
+            img.thumbList = RetrieveTagData(doc,_xPathThumb,"data-src"); //thumbnail images
+            img.linkList = RetrieveTagData(doc,_xPathLink,"href"); //hd links
             return img;
         }
+        public string GetHDImage(string link, string xPath, string tag)
+        {
+            string base64data = string.Empty;
 
-        private List<string> RetrieveThumbnails(HtmlAgilityPack.HtmlDocument web)
+            HtmlWeb web = new HtmlWeb();
+            HtmlAgilityPack.HtmlDocument doc = web.Load(link);
+            HtmlNode node = doc.DocumentNode.SelectSingleNode(xPath);
+            if (node != null)
+                base64data = node.GetAttributeValue(tag,"default");
+
+            return base64data;
+        }
+
+        private List<string> RetrieveTagData(HtmlAgilityPack.HtmlDocument web, string xPath, string tag)
         {
             List<string> returnList = new List<string>();
-
-            HtmlNodeCollection nodes = web.DocumentNode.SelectNodes(_xPathThumb);
+            HtmlNodeCollection nodes = web.DocumentNode.SelectNodes(xPath);
 
             if (nodes != null)
             {
                 foreach (HtmlNode node in nodes)
                 {
-                    returnList.Add(node.Attributes["data-src"].Value);
+                    returnList.Add(node.Attributes[tag].Value);
                 }
             }
+
             return returnList;
         }
-
 
     }
 }
