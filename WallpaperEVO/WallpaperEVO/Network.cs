@@ -27,21 +27,26 @@ namespace WallpaperEVO
             Image img = new Image();
 
             HtmlAgilityPack.HtmlDocument doc = web.Load(_URL);
-            img.thumbList = RetrieveTagData(doc,_xPathThumb,"data-src"); //thumbnail images
-            img.linkList = RetrieveTagData(doc,_xPathLink,"href"); //hd links
+            img.thumbList = RetrieveTagData(doc, _xPathThumb, "src"); //thumbnail images
+            img.linkList = RetrieveTagData(doc, _xPathLink, "href"); //hd links
+
+            for (int i = 0; i < img.linkList.Count; i++)
+            {
+                string substr = string.Empty;
+                substr = "https://wallpaperscraft.com" + img.linkList[i];
+                img.linkList[i] = substr;
+            }
             return img;
         }
-        public string GetHDImage(string link, string xPath, string tag)
+        public List<string> GetHDImage(string link, string xPath, string tag)
         {
-            string base64data = string.Empty;
-
+            List<string> linkToReturn = new List<string>();
             HtmlWeb web = new HtmlWeb();
             HtmlAgilityPack.HtmlDocument doc = web.Load(link);
-            HtmlNode node = doc.DocumentNode.SelectSingleNode(xPath);
-            if (node != null)
-                base64data = node.GetAttributeValue(tag,"default");
+            linkToReturn = RetrieveTagData(doc, xPath, tag);
 
-            return base64data;
+            return linkToReturn;
+
         }
 
         private List<string> RetrieveTagData(HtmlAgilityPack.HtmlDocument web, string xPath, string tag)

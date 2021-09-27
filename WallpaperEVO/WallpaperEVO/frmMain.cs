@@ -32,8 +32,8 @@ namespace WallpaperEVO
         public const string QUERY = "&query=";
         public const string END = "&size=1920x1080";
         public const string XPATH_THUMB = "/html/body/div/div[2]/div[2]/div/div[2]/div[1]/ul/li/a/span[1]/img";
-        public const string XPATH_LINK = "/html/body/main/section/ul/li/figure/a";
-        public const string XPATH_HD = "//*[@id=\"show_img\"]";
+        public const string XPATH_LINK = "/html/body/div/div[2]/div[2]/div/div[2]/div[1]/ul/li/a";
+        public const string XPATH_HD = "/html/body/div/div[2]/div[2]/div/div[2]/div[1]/div[1]/a/img";
 
         public frmMain()
         {
@@ -80,14 +80,13 @@ namespace WallpaperEVO
             ToggleControls();
             if (CheckData())
             {
-
                 pnlContent.Controls.Clear();
                 xImage = 0;
                 yImage = 0;
                 temp = 0;
                 Image c_img = new Image();
 
-                c_img = GetImages(GetURL(txbSearch.Text, index), XPATH_THUMB, XPATH_LINK,XPATH_HD);
+                c_img = GetImages(GetURL(txbSearch.Text, index), XPATH_THUMB, XPATH_LINK, XPATH_HD);
                 ShowImages(c_img);
             }
             else
@@ -143,9 +142,10 @@ namespace WallpaperEVO
         private void showlink(object sender, EventArgs e)
         {
             PictureBox pxb = sender as PictureBox;
-            Network nw = new Network("","","");
-            string base64data = nw.GetHDImage(pxb.Tag.ToString()+"/download/1920x1080",XPATH_HD,"src");
-            MessageBox.Show(base64data);
+            Network nw = new Network("", "", "");
+            List<string> SingleImageLink = nw.GetHDImage(pxb.Tag.ToString(), XPATH_HD, "src");
+            if (SingleImageLink[0] != null)
+                MessageBox.Show(SingleImageLink[0]);
         }
 
         private void tmrTime_Tick(object sender, EventArgs e)
